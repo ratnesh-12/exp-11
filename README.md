@@ -1,184 +1,116 @@
-# Classes and Objects in CPP
-***
+# Class and Object Experiments
+# Experiment 1: Student Information
+# Aim
 
-# OOP Basics in C++
+To create a class Student with public data members and display student details.
 
-## Objective
+# Theory
 
-To investigate and apply object-oriented programming concepts in C++ by implementing classes, public/private data members, member functions (methods defined both inside and outside a class), and basic data manipulation.
+A class in C++ is a user-defined blueprint that groups related data and functions together. When we create an object of the class, it acts as a variable that stores values for the class members. In this experiment, the Student class is used to store details like name and age, showing how a class can represent real-world entities.
 
-## Tools and Technologies
-
-**IDE**: Any C++ compatible IDE  
-**Language**: C++  
-**Concepts**: Classes, objects, public/private members, methods, encapsulation, user input
-
-***
-
-## Background
-
-C++ is a powerful language that supports object-oriented programming (OOP) through **classes** and **objects**. OOP helps organize code by bundling data (members) and functionality (methods), allowing encapsulation and abstraction while supporting concepts like inheritance and polymorphism. Basic class structures serve as the foundation for more advanced applications and efficient program design.
-
-OOP principles involve:
-- Grouping data and associated functions (methods) together
-- Controlling access via public/private specifiers (encapsulation)
-- Creating and using reusable code with user-defined types (classes and objects)
-
-***
-
-## Key Concepts
-
-### 1. Understanding Classes and Objects
-
-A **class** is a blueprint for objects, specifying data attributes and functions. An **object** is an instance of a class.
-
-**Syntax:**
-```cpp
-class ClassName {
- public:
-  // Data members (variables)
-  // Member functions (methods)
-};
-```
-
-### 2. Public and Private Specifiers
-
-- **Public**: Members accessible from outside the class (good for safe sharing).
-- **Private**: Members accessible only from within class methods (good for data protection).
-
-### 3. Methods Inside and Outside Class
-
-- Methods can be defined **inside** the class (usually for simple functions).
-- Or declared within the class and defined **outside** (for clarity/organization).
-
-***
-
-## Experiments
-
-### 1. Student Information
-
-#### Objective
-
-Create a class for student information, instantiate objects, and print their details.
-
-#### Steps
-
-- Define a class `Student` with public data members `name` and `age`.
-- Create an object and print its details.
-
-#### Sample Code
-
-```cpp
-#include 
-using namespace std;
+Code: 
 
 class Student {
-  public:
+public:
     string name;
     int age;
 };
 
-int main() {
-    Student s;
-    s.name = "Alice";
-    s.age = 20;
-    cout 
-using namespace std;
+# Experiment 2: Car Details
+# Aim
+
+To create a class Car with members brand and year and display details.
+
+# Theory
+
+Classes can be used to model objects from real life. Each car has properties such as brand and year of manufacture. By creating a class Car, we can encapsulate these properties and then create multiple objects to represent different cars. This demonstrates how OOP helps in organizing code and reusing it efficiently.
+
+Code: 
 
 class Car {
-  public:
+public:
     string brand;
     int year;
 };
 
-int main() {
-    Car car1;
-    cout > car1.brand;
-    cout > car1.year;
-    cout 
-using namespace std;
+# Experiment 3: Rectangle Area
+# Aim
+
+To calculate area of a rectangle using a class method.
+
+# Theory
+
+Along with storing data, classes can also have member functions that operate on the stored values. This experiment introduces functions inside a class, where the area() function calculates the area of a rectangle. This shows how data and behavior can be combined together inside a class.
+
+Code:
 
 class Rectangle {
-  public:
-    float length;
-    float width;
-    float area() {
-        return length * width;
-    }
+public:
+    float length, width;
+    float area() { return length * width; }
 };
 
-int main() {
-    Rectangle rect;
-    rect.length = 5.0;
-    rect.width = 3.0;
-    cout 
-using namespace std;
+# Experiment 4: Simple Calculator
+# Aim
+
+To perform addition, subtraction, multiplication, and division using a class.
+
+# Theory
+
+Classes can group multiple functions together to provide different operations on the same set of data. Here, the Calculator class contains methods for addition, subtraction, multiplication, and division. This highlights the concept of modularity, where related operations are kept in one place, making code clean and reusable.
+
+Code:
 
 class Calculator {
- public:
-    double num1, num2;
-    double add() { return num1 + num2; }
-    double subtract() { return num1 - num2; }
-    double multiply() { return num1 * num2; }
-    double divide() { return num1 / num2; }
+public:
+    float num1, num2;
+    float add() { return num1 + num2; }
+    float subtract() { return num1 - num2; }
+    float multiply() { return num1 * num2; }
+    float divide() { return (num2 != 0) ? num1 / num2 : 0; }
 };
 
-int main() {
-    Calculator calc;
-    cout > calc.num1 >> calc.num2;
-    cout 
-using namespace std;
+# Experiment 5: Cube Volume (Inside and Outside Methods)
+# Aim
+
+To calculate cube volume with methods defined inside and outside the class.
+
+# Theory
+
+C++ allows us to define member functions both inside and outside the class. Functions defined inside are treated as inline functions, while those defined outside use the scope resolution operator (::). This experiment shows both approaches to help understand function definition flexibility in OOP.
+
+Code:
 
 class Cube {
- public:
-  double side;
-  double volume(); // Declaration only
+public:
+    int side;
+    int volumeInside() { return side*side*side; }
+    int volumeOutside();
 };
 
-double Cube::volume() { // Out-of-class definition
-    return side * side * side;
+int Cube::volumeOutside() {
+    return side*side*side;
 }
 
-int main() {
-    Cube c;
-    c.side = 4;
-    cout 
-using namespace std;
+# Experiment 6: Public and Private Variables
+# Aim
+
+To show encapsulation using private variables and public methods.
+
+# Theory
+
+In C++, encapsulation means hiding the internal details of a class and only exposing what is necessary. Private members cannot be accessed directly from outside the class. Instead, we use getter and setter methods to safely modify and access values. This ensures data protection and controlled access, which is a key principle of OOP.
+
+Code:
 
 class Cube {
- private:
-    double side;
- public:
-    void setSide(double s) {
-        side = s;
-    }
-    double getSide() {
-        return side;
-    }
-    double volume() {
-        return side * side * side;
-    }
+private:
+    int side;
+public:
+    void setSide(int s) { side = s; }
+    int volume() { return side*side*side; }
 };
 
-int main() {
-    Cube c;
-    c.setSide(5);
-    cout << "Cube Side: " << c.getSide() << endl;
-    cout << "Volume of Cube: " << c.volume() << endl;
-    return 0;
-}
-```
+# Conclusion:
 
-#### Output
-```
-Cube Side: 5
-Volume of Cube: 125
-```
-
-***
-
-## Conclusion
-
-These experiments introduce the foundational concepts of object-oriented programming in C++. You practiced creating classes and objects, manipulating access via public/private specifiers, reading input from users, and defining methods inside and outside the class. Mastery of these basics paves the way for advanced C++ programming and efficient software design using OOP.
-
-***
+Through these experiments, we understood how classes and objects form the foundation of Object-Oriented Programming (OOP) in C++. We saw how classes can hold data and functions, how objects represent real-world entities, and how encapsulation ensures safe access to data. By practicing with simple examples like students, cars, rectangles, calculators, and cubes, we built a strong base for more advanced concepts such as constructors, inheritance, and polymorphism. These experiments show that OOP not only organizes code better but also makes it easier to maintain and scale programs.
